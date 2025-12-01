@@ -44,8 +44,11 @@ python employee_authentication.py
 ```
 
 **Local Setup — Frontend (React / Vite)**
-1. Change into the frontend folder and install dependencies:
+# 1. Change into the frontend folder and install dependencies:
 ```bash
+cd facial-recognition-app
+npm install
+```
 # Facial Recognition App on AWS — from scratch
 
 ![Architecture](assets/architecture.png)
