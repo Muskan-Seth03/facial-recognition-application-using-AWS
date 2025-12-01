@@ -78,8 +78,8 @@ Security and IAM
 Local development
 
 Prerequisites
-- Python 3.8+ (for scripts)
-- Node.js 16+ and npm/yarn (for frontend)
+- Python 3.13+ (for scripts)
+- Node.js 22+ and npm/yarn (for frontend)
 - AWS CLI configured with appropriate credentials (or localstack for offline testing)
 
 Backend (Python) quickstart
