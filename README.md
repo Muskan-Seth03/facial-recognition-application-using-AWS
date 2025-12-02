@@ -2,19 +2,21 @@
 
 This repository contains a facial recognition demo project that combines a small Python backend for employee registration/authentication and a React/Vite frontend app located in `facial-recognition-app`.
 
+**Demo URL**: "http://facial-recognition-app-ui.s3-website-us-east-1.amazonaws.com"
+
 **Quick Summary**
 - **Backend**: Python scripts at the repository root (`employee_registration.py`, `employee_authentication.py`) that interact with your environment and AWS resources.
 - **Frontend**: `facial-recognition-app` — a Vite-based React app (source in `facial-recognition-app/src`, static assets in `facial-recognition-app/public`).
 
 **Repository Layout**
-- `employee_registration.py` : sample script to register an employee (face data, metadata).
-- `employee_authentication.py` : sample script to authenticate/verify an employee using face data.
+- `employee_registration.py` : To register an employee (face data, metadata).
+- `employee_authentication.py` : To authenticate/verify an employee using face data.
 - `facial-recognition-app/` : frontend (Vite + React) with `package.json`, `src/`, `public/`.
 - `backups/facial-recognition-app.bundle` : backup bundle containing the original sub-repo history (kept for safekeeping).
 
 **Prerequisites**
-- Python 3.8+ installed locally.
-- Node.js 16+ and npm (or yarn/pnpm) for the frontend.
+- Python 3.13+ installed locally.
+- Node.js 22+ and npm (or yarn/pnpm) for the frontend.
 - AWS credentials configured (if you plan to use AWS services such as S3, Rekognition, or DynamoDB).
 
 If you plan to run the AWS-related parts, configure credentials with one of these common methods:
@@ -27,33 +29,11 @@ export AWS_SECRET_ACCESS_KEY="..."
 export AWS_DEFAULT_REGION="us-east-1"
 ```
 
-**Local Setup — Backend (Python)**
-1. Create and activate a virtual environment:
-```bash
-python -m venv .venv
-source .venv/Scripts/activate  # on Windows PowerShell use: .\.venv\Scripts\Activate.ps1
-```
-2. Install dependencies (if you have a `requirements.txt`, use it):
-```bash
-pip install -r requirements.txt || pip install boto3
-```
-3. Run the sample scripts (adjust arguments/environment as needed):
-```bash
-python employee_registration.py
-python employee_authentication.py
-```
-
-**Local Setup — Frontend (React / Vite)**
-# 1. Change into the frontend folder and install dependencies:
-```bash
-cd facial-recognition-app
-npm install
-```
 # Facial Recognition App on AWS — from scratch
 
 ![Architecture](assets/architecture.png)
 
-This repository contains a demonstration facial recognition application built to run on AWS using serverless components. It includes example Python scripts for registration and authentication as well as a Vite + React frontend inside `facial-recognition-app/`.
+Facial recognition application built to run on AWS using serverless components. It includes Python scripts for registration and authentication as well as a Vite + React frontend inside `facial-recognition-app/`.
 
 This README documents the architecture, the AWS services used (Rekognition, Lambda, DynamoDB, API Gateway, S3), local setup, deployment recommendations, and security/IAM guidance.
 
@@ -132,9 +112,6 @@ Notes on Rekognition workflows
 - For small projects, CompareFaces is simple: provide a source/target image and Rekognition returns similarity scores.
 - For production-scale, IndexFaces into a Rekognition collection and use SearchFacesByImage for quick lookups and scalable indexing.
 - Face match thresholds are important — tune based on false positive/negative tolerance.
-
-Restoring original sub-repo history
-- The frontend was imported from a nested repo; the original history is saved in `backups/facial-recognition-app.bundle` if you want to restore it into a separate repository.
 
 Troubleshooting
 - Rekognition errors: check region compatibility and ensure Rekognition is enabled in that region.
